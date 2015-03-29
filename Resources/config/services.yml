@@ -1,0 +1,10 @@
+services:
+    grossum_news.news.manager:
+        class: %grossum_news.news.manager.class%
+        arguments:
+            - @grossum_core.entity_manager
+
+    grossum_news.tag.manager:
+        class: %grossum_news.tag.manager.class%
+        arguments:
+            - @grossum_core.entity_manager

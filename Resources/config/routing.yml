@@ -1,0 +1,9 @@
+grossum_news_homepage:
+    path:     /news
+    defaults: { _controller: GrossumNewsBundle:News:index }
+
+grossum_news_full:
+    path:     /news/{id}
+    defaults: { _controller: GrossumNewsBundle:News:show }
+    requirements:
+        id: \d+

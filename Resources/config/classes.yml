@@ -1,0 +1,3 @@
+parameters:
+    grossum_news.news.manager.class: Grossum\NewsBundle\Entity\EntityManager\NewsManager
+    grossum_news.tag.manager.class: Grossum\NewsBundle\Entity\EntityManager\TagManager

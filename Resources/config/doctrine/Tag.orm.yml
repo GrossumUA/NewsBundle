@@ -1,0 +1,27 @@
+Grossum\NewsBundle\Entity\Tag:
+    type: mappedSuperclass
+    table: tag
+    repositoryClass: Grossum\NewsBundle\Entity\Repository\TagRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+            options:
+                unsigned: true
+    fields:
+        name:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    lifecycleCallbacks:
+        prePersist: [setCreatedAtValue, setUpdatedAtValue]
+        preUpdate: [setUpdatedAtValue]

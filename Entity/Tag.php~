@@ -1,0 +1,22 @@
+<?php
+
+namespace Grossum\NewsBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
+
+/**
+ * Tag
+ */
+class Tag
+{
+    use DateTimeControlTrait;
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName()?: 'Новый тег';
+    }
+}

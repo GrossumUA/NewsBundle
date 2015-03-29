@@ -1,0 +1,39 @@
+{
+    "name" : "grossum/news-bundle",
+    "description" : "This bundle added News entity with fields: name, email and message",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Dmytro Boiko",
+        "email" : "dboyko@grossum.com"
+    }],
+    "keywords" : [
+        "News bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require": {
+        "php": ">=5.5.2",
+        "symfony/framework-bundle": "~2.1",
+        "sonata-project/core-bundle": "~2.2",
+        "sonata-project/cache": "~1.0",
+        "egeloen/ckeditor-bundle": "3.0.*"
+    },
+    "require-dev": {
+        "knplabs/knp-menu-bundle": "~2.0",
+        "sonata-project/admin-bundle": "~2.2"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Grossum\\NewsBundle" : ""
+        }
+    },
+    "target-dir" : "Grossum/NewsBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "0.1-dev"
+        }
+    }
+}
