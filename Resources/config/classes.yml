@@ -1,3 +1,7 @@
 parameters:
+    grossum_news.news.admin.class: Grossum\NewsBundle\Admin\NewsAdmin
+    grossum_news.tag.admin.class: Grossum\NewsBundle\Admin\TagAdmin
+    grossum_news.news.entity.class: Grossum\NewsBundle\Entity\News
+    grossum_news.tag.entity.class: Grossum\NewsBundle\Entity\Tag
     grossum_news.news.manager.class: Grossum\NewsBundle\Entity\EntityManager\NewsManager
     grossum_news.tag.manager.class: Grossum\NewsBundle\Entity\EntityManager\TagManager
