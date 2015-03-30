@@ -2,14 +2,6 @@ Grossum\NewsBundle\Entity\Tag:
     type: mappedSuperclass
     table: tag
     repositoryClass: Grossum\NewsBundle\Entity\Repository\TagRepository
-    id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: IDENTITY
-            options:
-                unsigned: true
     fields:
         name:
             type: string

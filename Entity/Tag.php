@@ -2,7 +2,6 @@
 
 namespace Grossum\NewsBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
@@ -12,25 +11,23 @@ use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 class Tag
 {
     use DateTimeControlTrait;
-    /**
-     * @var integer
-     */
-    private $id;
+
+    protected $id;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var \DateTime
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
+    protected $updatedAt;
 
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Grossum\NewsBundle\Entity;
 
-use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\ORM\Mapping as ORM;
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
@@ -12,58 +11,38 @@ use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 class News
 {
     use DateTimeControlTrait;
-    /**
-     * @var integer
-     */
-    private $id;
+
+    protected $id;
 
     /**
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @var boolean
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var \DateTime
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @var \DateTime
      */
-    private $publicationAt;
-
-    /**
-     * @var Media
-     */
-    private $image;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $tags;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    protected $publicationAt;
 
     /**
      * Get id
@@ -211,62 +190,6 @@ class News
     public function getPublicationAt()
     {
         return $this->publicationAt;
-    }
-
-    /**
-     * Set image
-     *
-     * @param Media $image
-     * @return News
-     */
-    public function setImage(Media $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return Media
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Add tags
-     *
-     * @param Tag $tags
-     * @return News
-     */
-    public function addTag(Tag $tags)
-    {
-        $this->tags[] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tags
-     */
-    public function removeTag(Tag $tags)
-    {
-        $this->tags->removeElement($tags);
-    }
-
-    /**
-     * Get tags
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
 
     /**

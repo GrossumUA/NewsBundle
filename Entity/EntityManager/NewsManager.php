@@ -19,14 +19,4 @@ class NewsManager
         $this->objectManager = $objectManager;
         $this->repository    = $objectManager->getRepository('GrossumNewsBundle:News');
     }
-
-    public function findAllEnabledNewsOrderByPostedAt()
-    {
-        return $this->repository->findAllEnabledNewsOrderByPostedAt();
-    }
-
-    public function findOneById($id)
-    {
-        return $this->repository->findOneById($id);
-    }
 }
