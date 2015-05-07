@@ -24,7 +24,7 @@ class GrossumNewsExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         if (!class_exists('Grossum\CoreBundle\GrossumCoreBundle')) {
-            throw new LogicException('GrossumContactBundle required GrossumCoreBundle');
+            throw new LogicException('GrossumNewsBundle required GrossumCoreBundle');
         }
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
