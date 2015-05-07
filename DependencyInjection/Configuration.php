@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('grossum_feedback');
+        $rootNode = $treeBuilder->root('grossum_news');
 
         return $treeBuilder;
     }
