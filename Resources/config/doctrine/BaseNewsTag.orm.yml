@@ -1,7 +1,6 @@
-Grossum\NewsBundle\Entity\Tag:
+Grossum\NewsBundle\Entity\BaseNewsTag:
     type: mappedSuperclass
-    table: tag
-    repositoryClass: Grossum\NewsBundle\Entity\Repository\TagRepository
+    repositoryClass: Grossum\NewsBundle\Entity\Repository\BaseNewsTagRepository
     fields:
         name:
             type: string

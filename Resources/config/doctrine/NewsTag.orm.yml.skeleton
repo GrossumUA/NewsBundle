@@ -1,0 +1,9 @@
+Application\Grossum\NewsBundle\Entity\NewsTag:
+    type: entity
+    table: grossum_news_tag
+    repositoryClass: Application\Grossum\NewsBundle\Entity\Repository\NewsTagRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

@@ -1,20 +1,20 @@
 services:
     sonata.admin.news:
-        class: %grossum_news.news.admin.class%
+        class: %grossum_news.admin.news.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.main, label: "Новости" }
         arguments:
             - ~
-            - %grossum_news.news.entity.class%
+            - %grossum_news.entity.news.class%
             - ~
 
     sonata.admin.tag:
-        class: %grossum_news.tag.admin.class%
+        class: %grossum_news.admin.news_tag.class%
         tags:
             - { name: sonata.admin, manager_type: orm, group: group.main, label: "Теги для новостей" }
         arguments:
             - ~
-            - %grossum_news.tag.entity.class%
+            - %grossum_news.entity.news_tag.class%
             - ~
         calls:
-            - [ setTagManager, [@grossum_news.tag.manager]]
+            - [ setNewsTagManager, [@grossum_news.tag.manager]]

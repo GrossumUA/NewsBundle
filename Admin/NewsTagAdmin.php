@@ -2,23 +2,24 @@
 
 namespace Grossum\NewsBundle\Admin;
 
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Grossum\NewsBundle\Entity\EntityManager\TagManager;
-use Grossum\NewsBundle\Entity\Tag;
 
-class TagAdmin extends Admin
+use Grossum\NewsBundle\Entity\EntityManager\BaseNewsTagManager;
+
+class NewsTagAdmin extends Admin
 {
-    /** @var  TagManager $tagManager */
+    /**
+     * @var BaseNewsTagManager
+     */
     private $tagManager;
 
     /**
-     * Fields to be shown on create/edit forms
-     *
-     * @param FormMapper $formMapper
+     * {@inheritdoc}
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -27,9 +28,7 @@ class TagAdmin extends Admin
     }
 
     /**
-     * Fields to be shown on lists
-     *
-     * @param ListMapper $listMapper
+     * {@inheritdoc}
      */
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -39,8 +38,7 @@ class TagAdmin extends Admin
     }
 
     /**
-     * @param ErrorElement $errorElement
-     * @param mixed $object
+     * {@inheritdoc}
      */
     public function validate(ErrorElement $errorElement, $object)
     {
@@ -49,8 +47,7 @@ class TagAdmin extends Admin
             ->addConstraint(new NotBlank(['message' => 'Введите название тега']))
             ->end();
 
-        /** @var Tag $tagByName */
-        $tagByName = $this->tagManager->findOneByName($object->getName());
+        $tagByName = $this->tagManager->getRepository()->findOneByName($object->getName());
 
         if ($tagByName && $tagByName->getId() != $object->getId()) {
             $errorElement
@@ -61,10 +58,10 @@ class TagAdmin extends Admin
     }
 
     /**
-     * @param TagManager $tagManager
+     * @param BaseNewsTagManager $newsTagManager
      */
-    public function setTagManager(TagManager $tagManager)
+    public function setNewsTagManager(BaseNewsTagManager $newsTagManager)
     {
-        $this->tagManager = $tagManager;
+        $this->tagManager = $newsTagManager;
     }
 }

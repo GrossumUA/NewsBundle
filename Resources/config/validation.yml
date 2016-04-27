@@ -1,0 +1,17 @@
+Grossum\NewsBundle\Entity\BaseNews:
+    properties:
+        title:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+        publicationAt:
+            - NotBlank: ~
+        tags:
+            - NotBlank: ~
+#        image:
+#            - NotBlank: ~
+
+Grossum\NewsBundle\Entity\BaseNewsTag:
+    properties:
+        name:
+            - NotBlank: ~

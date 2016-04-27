@@ -3,15 +3,16 @@
 namespace Grossum\NewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * Tag
- */
-class Tag
+class BaseNewsTag
 {
     use DateTimeControlTrait;
 
+    /**
+     * @var int
+     */
     protected $id;
 
     /**
@@ -29,10 +30,7 @@ class Tag
      */
     protected $updatedAt;
 
-
     /**
-     * Get id
-     *
      * @return integer
      */
     public function getId()
@@ -41,10 +39,8 @@ class Tag
     }
 
     /**
-     * Set name
-     *
      * @param string $name
-     * @return Tag
+     * @return $this
      */
     public function setName($name)
     {
@@ -54,8 +50,6 @@ class Tag
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
@@ -64,10 +58,8 @@ class Tag
     }
 
     /**
-     * Set createdAt
-     *
      * @param \DateTime $createdAt
-     * @return Tag
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -77,8 +69,6 @@ class Tag
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -87,10 +77,8 @@ class Tag
     }
 
     /**
-     * Set updatedAt
-     *
      * @param \DateTime $updatedAt
-     * @return Tag
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -100,8 +88,6 @@ class Tag
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
     public function getUpdatedAt()

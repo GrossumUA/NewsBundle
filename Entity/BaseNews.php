@@ -2,16 +2,21 @@
 
 namespace Grossum\NewsBundle\Entity;
 
+use Sonata\MediaBundle\Entity\BaseMedia;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 use Grossum\CoreBundle\Entity\EntityTrait\DateTimeControlTrait;
 
-/**
- * News
- */
-class News
+class BaseNews
 {
     use DateTimeControlTrait;
 
+    /**
+     * @var int
+     */
     protected $id;
 
     /**
@@ -45,8 +50,21 @@ class News
     protected $publicationAt;
 
     /**
-     * Get id
-     *
+     * @var BaseNewsTag[]|ArrayCollection
+     */
+    protected $tags;
+
+    /**
+     * @var BaseMedia
+     */
+    protected $image;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
+    /**
      * @return integer
      */
     public function getId()
@@ -55,10 +73,8 @@ class News
     }
 
     /**
-     * Set title
-     *
      * @param string $title
-     * @return News
+     * @return $this
      */
     public function setTitle($title)
     {
@@ -68,8 +84,6 @@ class News
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
     public function getTitle()
@@ -78,10 +92,8 @@ class News
     }
 
     /**
-     * Set description
-     *
      * @param string $description
-     * @return News
+     * @return $this
      */
     public function setDescription($description)
     {
@@ -91,8 +103,6 @@ class News
     }
 
     /**
-     * Get description
-     *
      * @return string
      */
     public function getDescription()
@@ -101,10 +111,8 @@ class News
     }
 
     /**
-     * Set enabled
-     *
      * @param boolean $enabled
-     * @return News
+     * @return $this
      */
     public function setEnabled($enabled)
     {
@@ -114,8 +122,6 @@ class News
     }
 
     /**
-     * Get enabled
-     *
      * @return boolean
      */
     public function getEnabled()
@@ -124,10 +130,8 @@ class News
     }
 
     /**
-     * Set createdAt
-     *
      * @param \DateTime $createdAt
-     * @return News
+     * @return $this
      */
     public function setCreatedAt($createdAt)
     {
@@ -137,8 +141,6 @@ class News
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -147,10 +149,8 @@ class News
     }
 
     /**
-     * Set updatedAt
-     *
      * @param \DateTime $updatedAt
-     * @return News
+     * @return $this
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -160,8 +160,6 @@ class News
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -170,10 +168,8 @@ class News
     }
 
     /**
-     * Set publicationAt
-     *
      * @param \DateTime $publicationAt
-     * @return News
+     * @return $this
      */
     public function setPublicationAt($publicationAt)
     {
@@ -183,13 +179,60 @@ class News
     }
 
     /**
-     * Get publicationAt
-     *
      * @return \DateTime
      */
     public function getPublicationAt()
     {
         return $this->publicationAt;
+    }
+
+    /**
+     * @param BaseNewsTag $tag
+     *
+     * @return $this
+     */
+    public function addTag(BaseNewsTag $tag)
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param BaseNewsTag $tag
+     */
+    public function removeTag(BaseNewsTag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * @return BaseNewsTag[]|Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @return BaseMedia
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param BaseMedia $image
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
     }
 
     /**

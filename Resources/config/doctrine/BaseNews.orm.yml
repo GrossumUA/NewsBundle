@@ -1,7 +1,6 @@
-Grossum\NewsBundle\Entity\News:
+Grossum\NewsBundle\Entity\BaseNews:
     type: mappedSuperclass
-    table: news
-    repositoryClass: Grossum\NewsBundle\Entity\Repository\NewsRepository
+    repositoryClass: Grossum\NewsBundle\Entity\Repository\BaseNewsRepository
     fields:
         title:
             type: string

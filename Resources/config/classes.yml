@@ -1,7 +1,7 @@
 parameters:
-    grossum_news.news.admin.class: Grossum\NewsBundle\Admin\NewsAdmin
-    grossum_news.tag.admin.class: Grossum\NewsBundle\Admin\TagAdmin
-    grossum_news.news.entity.class: Grossum\NewsBundle\Entity\News
-    grossum_news.tag.entity.class: Grossum\NewsBundle\Entity\Tag
-    grossum_news.news.manager.class: Grossum\NewsBundle\Entity\EntityManager\NewsManager
-    grossum_news.tag.manager.class: Grossum\NewsBundle\Entity\EntityManager\TagManager
+    grossum_news.admin.news.class:              Grossum\NewsBundle\Admin\NewsAdmin
+    grossum_news.admin.news_tag.class:          Grossum\NewsBundle\Admin\NewsTagAdmin
+    grossum_news.entity.news.class:             Grossum\NewsBundle\Entity\BaseNews
+    grossum_news.entity.news_tag.class:         Grossum\NewsBundle\Entity\BaseNewsTag
+    grossum_news.entity_manager.news.class:     Grossum\NewsBundle\Entity\EntityManager\BaseNewsManager
+    grossum_news.entity_manager.news_tag.class: Grossum\NewsBundle\Entity\EntityManager\BaseNewsTagManager
